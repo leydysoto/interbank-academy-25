@@ -1,66 +1,49 @@
 # Reto Técnico: Procesamiento de Transacciones Bancarias (CLI)
 
-## Objetivo:
+## Introducción:
 
-Desarrolla una aplicación de línea de comandos (CLI) que procese un archivo CSV con transacciones bancarias y genere un reporte que incluya:
+Este proyecto fue desarrollado como parte del proceso de selección para **Cobol Academy - Interbank**.  
+El objetivo del reto es evaluar mis habilidades técnicas resolviendo un 
+caso práctico con buenas prácticas de programación, documentación y organización del código.
 
-- **Balance Final:**  
-  Suma de los montos de las transacciones de tipo "Crédito" menos la suma de los montos de las transacciones de tipo "Débito".
+##  Instrucciones de Ejecución
 
-- **Transacción de Mayor Monto:**  
-  Identificar el ID y el monto de la transacción con el valor más alto.
+### Requisitos previos
+- Java 17 o superior instalado
+- IDE recomendada: [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
-- **Conteo de Transacciones:**  
-  Número total de transacciones para cada tipo ("Crédito" y "Débito").
+## Instalación y ejecución
 
----
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/leydysoto/interbank-academy-25.git
+2. Abre IntelliJ IDEA y selecciona "Open" para abrir la carpeta del proyecto.
 
-## Instrucciones
+3. Si el proyecto no carga automáticamente como Maven, haz clic derecho en pom.xml y selecciona "Add as Maven Project".
 
-1. **Repositorio Base:**  
-   Clona o haz un fork del repositorio base disponible en:  
-   `https://github.com/codeableorg/interbank-academy-25`
+4. Ejecuta la clase Main.java desde src/main/java.
+## Enfoque y Solución
+1. El código realiza las siguientes operaciones:
 
-2. **Entrada de Datos:**  
-   La aplicación deberá leer un archivo CSV. Ejemplo de contenido:
+2. Lectura y Procesamiento de Datos: Se lee el archivo .csv y se separan los valores en cada línea. Se procesan los tipos de transacción (Crédito/Débito) y se calcula el monto total de cada tipo.
 
-   ```
-   id,tipo,monto
-   1,Crédito,100.00
-   2,Débito,50.00
-   3,Crédito,200.00
-   4,Débito,75.00
-   5,Crédito,150.00
-   ```
+3. Cálculo de Balance: El balance final es el resultado de la resta entre el total de créditos y débitos.
 
-3. **Salida del Programa:**  
-   La aplicación debe mostrar el reporte final en la terminal.  
-   Ejemplo de salida:
+4. Determinación del Mayor Monto: Se identifica la transacción con el mayor monto y se almacena su ID.
 
-   ```
-   Reporte de Transacciones
-   ---------------------------------------------
-   Balance Final: 325.00
-   Transacción de Mayor Monto: ID 3 - 200.00
-   Conteo de Transacciones: Crédito: 3 Débito: 2
-   ```
 
-4. **Lenguaje de Programación:**  
-   Utiliza el lenguaje de tu preferencia. Opciones recomendadas:
+##  Estructura del proyecto
 
-   - Python
-   - Java
-   - C#
-   - JavaScript (Node.js)
+```plaintext
+interbank-academy-25                   # Raíz del proyecto
+│
+├── reto-interbank          # Paquete del proyecto Java (Raíz de código fuente)
+│   └── src
+│       ├── main
+│       │   └── java
+│       │       └── Main.java     # Código fuente principal
+├── data.csv                       # Archivo de datos CSV
+├── README.md                      # Documentación del proyecto
+└── pom.xml                        # Archivo de configuración de Maven
 
-5. **README del Proyecto:**  
-   Incluye un archivo `README.md` con la siguiente estructura:
-
-   - **Introducción:** Breve descripción del reto y su propósito.
-   - **Instrucciones de Ejecución:** Cómo instalar dependencias y ejecutar la aplicación.
-   - **Enfoque y Solución:** Lógica implementada y decisiones de diseño.
-   - **Estructura del Proyecto:** Archivos y carpetas principales.
-
-6. **Documentación y Calidad del Código:**
-   - Código bien documentado y fácil de leer.
-   - Comentarios explicando pasos clave y lógica del programa.
+```
