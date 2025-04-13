@@ -26,17 +26,34 @@ public class Main {
             br.readLine();
 
             while ((linea = br.readLine()) != null) {
+
                 //--------------Realizamos la separación de los datos  por comas------------//
                 String[] datos = linea.split(",");
-                //--------------Validar si se encuentra datos incompletos------------//
+
+                //--------------Antes de acceder a los índices garantizamos que la longitud es exactamente 3-----------//
                 if (datos.length != 3) {
-                    System.out.println("Línea mal formateada: " + linea);
+                    System.out.println("Línea mal formateada: " + linea );
                     continue;
                 }
 
                 String id = datos[0].trim();
                 String tipo = datos[1].trim();
-                double monto = Double.parseDouble(datos[2].trim());
+                String montoStr = datos[2].trim();
+
+                //------------validacion de valores vacios------------//
+                if (id.isEmpty() || tipo.isEmpty() || montoStr.isEmpty()) {
+                    System.out.println("Línea con campos vacíos: " + linea);
+                    continue;
+                }
+
+                double monto;
+                //------------validacion al Intentar convertir el monto a número----------//
+                try {
+                    monto = Double.parseDouble(montoStr);
+                } catch (NumberFormatException e) {
+                    System.out.println("Monto inválido en línea: " + linea);
+                    continue;
+                }
 
                 //------------ Realizamos el Procesamiento de los créditos y débitos-------//
                 if (tipo.equals("Crédito")) {
@@ -61,7 +78,7 @@ public class Main {
             System.out.println("---------------------------");
             System.out.println("Balance Final: $" + String.format("%.2f",balance));
             System.out.println("Transacción de Mayor Monto: ID " + idMayorMonto + " - $" + mayorMonto);
-            System.out.println("Conteo de Transacciones: Crédito: " + conteoDebito + " Débito: "+conteoCredito);
+            System.out.println("Conteo de Transacciones: Crédito: " + conteoCredito + " Débito: "+ conteoDebito);
 
         }catch (IOException e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());

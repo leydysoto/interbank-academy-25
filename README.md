@@ -23,15 +23,16 @@ caso práctico con buenas prácticas de programación, documentación y organiza
 
 4. Ejecuta la clase Main.java desde src/main/java.
 ## Enfoque y Solución
-1. El código realiza las siguientes operaciones:
+El código realiza las siguientes operaciones:
+1. Lectura y Procesamiento de Datos: Se lee el archivo .csv y se separan los valores en cada línea.
+2. Cálculo de Balance: Se procesan las transacciones (Crédito/Débito), sumando los montos de cada tipo, y se calcula la diferencia entre el total de Créditos y Débitos.
+3. Determinación del Mayor Monto: Se identifica la transacción con el mayor monto  independientemente del tipo de transacción.
+4. Conteo de Transacciones: Se procesan las transacciones (Crédito/Débito), contando la cantidad de transacciones de cada tipo.
 
-2. Lectura y Procesamiento de Datos: Se lee el archivo .csv y se separan los valores en cada línea. Se procesan los tipos de transacción (Crédito/Débito) y se calcula el monto total de cada tipo.
-
-3. Cálculo de Balance: El balance final es el resultado de la resta entre el total de créditos y débitos.
-
-4. Determinación del Mayor Monto: Se identifica la transacción con el mayor monto y se almacena su ID.
-
-
+#### Decisiones de diseño:
+1.  Estructura condicional (if-else):
+    sé un bloque if-else para distinguir entre transacciones de tipo Crédito y Débito.
+2. Validación de datos: Incluí validaciones para garantizar que los datos leídos del archivo sean correctos
 ##  Estructura del proyecto
 
 ```plaintext
